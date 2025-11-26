@@ -495,16 +495,42 @@ const Index = () => {
           </div>
           
           {/* Campus Achievers */}
-         <div>
+          <div>
             <h3 className="text-3xl font-bold text-center mb-8 text-primary">Campus Achievers</h3>
-            <div className="flex justify-center items-center min-h-[200px] rounded-xl border-2 border-dashed border-primary/20 bg-primary/5">
-              <p className="text-3xl font-bold text-muted-foreground/50 uppercase tracking-widest">To Be Updated</p>
+            <div className="grid md:grid-cols-3 gap-8">
+              {[
+                {
+                 
+                  image: "https://res.cloudinary.com/dmzliau0j/image/upload/v1764172893/Gemini_Generated_Image_3l9dkv3l9dkv3l9d_hp9gtk.png",
+                 
+                },
+                {
+                 
+                  image: "https://res.cloudinary.com/dmzliau0j/image/upload/v1764172892/Gemini_Generated_Image_3l9dkv3l9dkv3l9d_1_tggwmq.png",
+                  
+                },
+                {
+                 
+                  image: "https://res.cloudinary.com/dmzliau0j/image/upload/v1764172892/Gemini_Generated_Image_3l9dkv3l9dkv3l9d_2_dpl6l6.png",
+                 
+                }
+              ].map((achiever, i) => (
+                <Card key={i} className="p-6 hover:scale-105 transition-transform duration-300">
+                  <div className="aspect-square overflow-hidden rounded-lg mb-4">
+                    <img 
+                      src={achiever.image} 
+                      alt={achiever.name} 
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                  <h4 className="text-xl font-bold mb-3 text-center">{achiever.name}</h4>
+                  <p className="text-sm text-muted-foreground text-center">{achiever.description}</p>
+                </Card>
+              ))}
             </div>
           </div>
         </div>
       </section>
-
-
       <section id="podcast" className="py-24 px-4 bg-[#020617]/90">
         <div className="max-w-7xl mx-auto text-center">
           <Mic className="h-16 w-16 text-primary mx-auto mb-6" />

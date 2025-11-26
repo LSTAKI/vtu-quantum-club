@@ -77,7 +77,7 @@ const Index = () => {
     name: "KARTHIK RAO R",
     role: "Chair",
     description: "Leading the Quantum Club VTU with a vision to make quantum computing accessible to all students. Passionate about quantum algorithms and their real-world applications.",
-    image: "https://res.cloudinary.com/dmzliau0j/image/upload/v1763922453/karthik_bhai_2_dzqcez.jpg"
+    image: "https://res.cloudinary.com/dmzliau0j/image/upload/v1764170746/karthik_bhai_4_x8awnz.jpg"
   };
 
   const committees = [

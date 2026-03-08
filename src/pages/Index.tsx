@@ -71,11 +71,24 @@ const Index = () => {
     }
   ];
 
+<<<<<<< HEAD
   const events: any[1] = [
     
     {
       name: "Quantum Student Summit 2026",
       image: "https://res.cloudinary.com/dmzliau0j/image/upload/v1772981693/WhatsApp_Image_2026-02-12_at_12.35.38_PM_dpgi1n.jpg",
+=======
+  const events: any[] = [
+    
+    {
+      name: "Quantum Student Summit 2026",
+      category: "Talks",
+      image: "https://res.cloudinary.com/dmzliau0j/image/upload/v1772981693/WhatsApp_Image_2026-02-12_at_12.35.38_PM_dpgi1n.jpg",
+      description: "Join us for an inspiring summit featuring quantum computing experts and innovators.",
+      date: "10-11 April 2026",
+      location: "VTU Campus",
+      link: "https://vtu.ac.in/en/"
+>>>>>>> 494dc40 (E)
     }
   
 ];
@@ -266,9 +279,37 @@ const Index = () => {
       </section>
 
       <section id="events" className="py-24 px-4 bg-[#0F172A]/90">
+<<<<<<< HEAD
         <div className="max-w-7xl mx-auto"><h2 className="text-4xl font-bold text-center mb-12">Events</h2>
           <div className="flex justify-center gap-3 mb-12">{categories.map(c => <Button key={c} variant={selectedCategory === c ? "default" : "outline"} onClick={() => setSelectedCategory(c)}>{c}</Button>)}</div>
           {filteredEvents.length === 0 && <Card className="p-12"><p className="text-center text-muted-foreground">No events scheduled. Check back soon!</p></Card>}
+=======
+        <div className="max-w-7xl mx-auto">
+          <h2 className="text-4xl font-bold text-center mb-12">Events</h2>
+          <div className="flex justify-center gap-3 mb-12">{categories.map(c => <Button key={c} variant={selectedCategory === c ? "default" : "outline"} onClick={() => setSelectedCategory(c)}>{c}</Button>)}</div>
+          {filteredEvents.length === 0 ? (
+            <Card className="p-12"><p className="text-center text-muted-foreground">No events scheduled. Check back soon!</p></Card>
+          ) : (
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {filteredEvents.map((event: any, i: number) => (
+                <a key={i} href={event.link} target="_blank" rel="noopener noreferrer">
+                  <Card className="overflow-hidden hover:scale-105 transition-transform duration-300 cursor-pointer h-full flex flex-col">
+                    <img src={event.image} alt={event.name} className="w-full h-48 object-cover" />
+                    <CardHeader>
+                      <CardTitle>{event.name}</CardTitle>
+                      {event.description && <CardDescription>{event.description}</CardDescription>}
+                    </CardHeader>
+                    <CardContent className="flex-grow">
+                      {event.date && <div className="flex items-center gap-2 text-sm text-muted-foreground mb-2"><Calendar className="h-4 w-4" />{event.date}</div>}
+                      {event.location && <div className="flex items-center gap-2 text-sm text-muted-foreground mb-4"><MapPin className="h-4 w-4" />{event.location}</div>}
+                      <Button className="w-full mt-4">View Details</Button>
+                    </CardContent>
+                  </Card>
+                </a>
+              ))}
+            </div>
+          )}
+>>>>>>> 494dc40 (E)
         </div>
       </section>
 

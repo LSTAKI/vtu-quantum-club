@@ -71,7 +71,7 @@ const Index = () => {
     }
   ];
 
-  const events: any[] = [];
+  const events: any[1] = [Image:"https://res.cloudinary.com/dmzliau0j/image/upload/v1772981693/WhatsApp_Image_2026-02-12_at_12.35.38_PM_dpgi1n.jpg"];
 
   const chairperson = {
     name: "KARTHIK RAO R",

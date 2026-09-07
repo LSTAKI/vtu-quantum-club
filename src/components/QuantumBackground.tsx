@@ -3,25 +3,26 @@ import { Text, Float } from '@react-three/drei';
 import { useRef, useMemo } from 'react';
 import * as THREE from 'three';
 
-const QuantumNotation = ({ position, text, speed }: { position: [number, number, number], text: string, speed: number }) => {
+const QuantumNotation = ({ position, text, speed, color = "#22D3EE" }: { position: [number, number, number], text: string, speed: number, color?: string }) => {
   const meshRef = useRef<THREE.Mesh>(null);
   
   useFrame((state) => {
     if (meshRef.current) {
-      meshRef.current.position.y = position[1] + Math.sin(state.clock.elapsedTime * speed) * 0.5;
-      meshRef.current.rotation.y += 0.01;
+      meshRef.current.position.y = position[1] + Math.sin(state.clock.elapsedTime * speed) * 0.7;
+      meshRef.current.rotation.y += 0.006;
+      meshRef.current.rotation.z = Math.cos(state.clock.elapsedTime * speed * 0.4) * 0.05;
     }
   });
 
   return (
-    <Float speed={speed} rotationIntensity={0.5} floatIntensity={0.5}>
+    <Float speed={speed} rotationIntensity={0.8} floatIntensity={1}>
       <mesh ref={meshRef} position={position}>
         <Text
-          fontSize={0.3}
-          color="#22D3EE"
+          fontSize={0.45}
+          color={color}
           anchorX="center"
           anchorY="middle"
-          outlineWidth={0.01}
+          outlineWidth={0.015}
           outlineColor="#020617"
         >
           {text}
@@ -31,25 +32,26 @@ const QuantumNotation = ({ position, text, speed }: { position: [number, number,
   );
 };
 
-const Qubit = ({ position }: { position: [number, number, number] }) => {
+const Qubit = ({ position, color = "#22D3EE" }: { position: [number, number, number], color?: string }) => {
   const meshRef = useRef<THREE.Mesh>(null);
   
   useFrame((state) => {
     if (meshRef.current) {
       meshRef.current.rotation.x = state.clock.elapsedTime * 0.5;
       meshRef.current.rotation.y = state.clock.elapsedTime * 0.3;
+      meshRef.current.position.y = position[1] + Math.sin(state.clock.elapsedTime * 0.8 + position[0]) * 0.3;
     }
   });
 
   return (
     <mesh ref={meshRef} position={position}>
-      <sphereGeometry args={[0.1, 16, 16]} />
+      <sphereGeometry args={[0.12, 16, 16]} />
       <meshStandardMaterial
-        color="#22D3EE"
-        emissive="#22D3EE"
-        emissiveIntensity={0.5}
+        color={color}
+        emissive={color}
+        emissiveIntensity={0.6}
         transparent
-        opacity={0.6}
+        opacity={0.75}
       />
     </mesh>
   );
@@ -57,37 +59,42 @@ const Qubit = ({ position }: { position: [number, number, number] }) => {
 
 const QuantumScene = () => {
   const notations = useMemo(() => [
-    { position: [-8, 2, -5] as [number, number, number], text: '|ψ⟩', speed: 0.8 },
-    { position: [8, -1, -5] as [number, number, number], text: '⟨φ|', speed: 0.6 },
-    { position: [-5, -3, -3] as [number, number, number], text: '|0⟩', speed: 0.9 },
-    { position: [6, 3, -4] as [number, number, number], text: '|1⟩', speed: 0.7 },
-    { position: [0, 4, -6] as [number, number, number], text: '⟨ψ|φ⟩', speed: 0.5 },
-    { position: [-3, 1, -2] as [number, number, number], text: '|+⟩', speed: 1.0 },
-    { position: [4, -2, -3] as [number, number, number], text: '|-⟩', speed: 0.85 },
+    { position: [-9, 3, -4] as [number, number, number], text: '|ψ⟩', speed: 0.8, color: '#22D3EE' },
+    { position: [9, -2, -5] as [number, number, number], text: '⟨φ|', speed: 0.6, color: '#2DD4BF' },
+    { position: [-6, -4, -3] as [number, number, number], text: '|0⟩', speed: 0.9, color: '#38BDF8' },
+    { position: [7, 4, -4] as [number, number, number], text: '|1⟩', speed: 0.7, color: '#818CF8' },
+    { position: [0, 5, -6] as [number, number, number], text: '⟨ψ|φ⟩', speed: 0.5, color: '#22D3EE' },
+    { position: [-4, 1.5, -2] as [number, number, number], text: '|+⟩', speed: 1.0, color: '#2DD4BF' },
+    { position: [5, -3, -3] as [number, number, number], text: '|-⟩', speed: 0.85, color: '#38BDF8' },
+    { position: [-8, -1, -6] as [number, number, number], text: 'H|0⟩', speed: 0.75, color: '#22D3EE' },
+    { position: [8, 1, -5] as [number, number, number], text: '|Φ⁺⟩', speed: 0.65, color: '#818CF8' },
+    { position: [-2, -5, -4] as [number, number, number], text: '|Ψ⁻⟩', speed: 0.95, color: '#2DD4BF' },
+    { position: [3, -5, -5] as [number, number, number], text: 'α|0⟩+β|1⟩', speed: 0.55, color: '#22D3EE' },
   ], []);
 
   const qubits = useMemo(() => 
-    Array.from({ length: 20 }, (_, i) => ({
+    Array.from({ length: 35 }, (_, i) => ({
       position: [
-        (Math.random() - 0.5) * 20,
-        (Math.random() - 0.5) * 10,
-        (Math.random() - 0.5) * 10 - 5,
-      ] as [number, number, number]
+        (Math.random() - 0.5) * 24,
+        (Math.random() - 0.5) * 14,
+        (Math.random() - 0.5) * 10 - 4,
+      ] as [number, number, number],
+      color: i % 3 === 0 ? '#22D3EE' : i % 3 === 1 ? '#2DD4BF' : '#818CF8'
     })),
   []);
 
   return (
     <>
-      <ambientLight intensity={0.3} />
-      <pointLight position={[10, 10, 10]} intensity={0.5} color="#22D3EE" />
-      <pointLight position={[-10, -10, -10]} intensity={0.3} color="#14B8A6" />
+      <ambientLight intensity={0.4} />
+      <pointLight position={[10, 10, 10]} intensity={0.6} color="#22D3EE" />
+      <pointLight position={[-10, -10, -10]} intensity={0.4} color="#14B8A6" />
       
       {notations.map((notation, i) => (
         <QuantumNotation key={i} {...notation} />
       ))}
       
       {qubits.map((qubit, i) => (
-        <Qubit key={i} position={qubit.position} />
+        <Qubit key={i} position={qubit.position} color={qubit.color} />
       ))}
     </>
   );
@@ -95,9 +102,9 @@ const QuantumScene = () => {
 
 export const QuantumBackground = () => {
   return (
-    <div className="fixed inset-0 -z-10">
+    <div className="fixed inset-0 z-0 pointer-events-none overflow-hidden">
       <Canvas
-        camera={{ position: [0, 0, 5], fov: 75 }}
+        camera={{ position: [0, 0, 6], fov: 75 }}
         style={{ background: 'transparent' }}
       >
         <QuantumScene />
@@ -105,3 +112,4 @@ export const QuantumBackground = () => {
     </div>
   );
 };
+

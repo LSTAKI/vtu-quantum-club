@@ -261,25 +261,30 @@ const Index = () => {
             </div>
           </div>
 
-          {/* Hero Image Showcase */}
+          {/* Hero Logo Showcase */}
           <div className="lg:col-span-5 relative">
-            <div className="relative rounded-2xl p-2 bg-gradient-to-b from-cyan-500/30 via-slate-800/40 to-slate-950 border border-cyan-500/30 shadow-2xl shadow-cyan-950/60 backdrop-blur-xl group">
-              <div className="overflow-hidden rounded-xl">
+            <div className="relative rounded-3xl p-6 bg-gradient-to-b from-slate-900/90 via-slate-900/70 to-slate-950/90 border border-cyan-500/40 shadow-2xl shadow-cyan-950/80 backdrop-blur-xl group flex flex-col items-center justify-center text-center">
+              <div className="overflow-hidden rounded-2xl bg-white p-6 w-full flex items-center justify-center shadow-lg shadow-cyan-500/20 group-hover:shadow-cyan-500/40 transition-all duration-500">
                 <img 
-                  src="https://res.cloudinary.com/dmzliau0j/image/upload/v1764162909/Hero-3_gjyj7c.jpg" 
-                  alt="Quantum Club VTU Showcase" 
-                  className="w-full h-auto object-cover transform group-hover:scale-105 transition-transform duration-700" 
+                  src="/quc-logo.jpg" 
+                  alt="QUC Quantum Club VTU Belagavi Logo" 
+                  className="w-full max-w-sm h-auto object-contain transform group-hover:scale-105 transition-transform duration-500" 
                 />
               </div>
 
+              <div className="mt-5 space-y-1">
+                <h3 className="text-lg font-bold text-slate-100 tracking-wide">QUANTUM CLUB</h3>
+                <p className="text-xs text-cyan-400 font-medium tracking-widest uppercase">Visvesvaraya Technological University, Belagavi</p>
+              </div>
+
               {/* Floating Quantum Floating Pill */}
-              <div className="absolute -bottom-5 -left-5 bg-slate-900/90 border border-cyan-500/40 backdrop-blur-md rounded-2xl p-4 shadow-xl flex items-center gap-3">
-                <div className="w-10 h-10 rounded-xl bg-cyan-500/20 flex items-center justify-center text-cyan-400 font-mono font-bold">
+              <div className="absolute -bottom-5 -left-5 bg-slate-900/95 border border-cyan-500/40 backdrop-blur-md rounded-2xl p-3.5 shadow-xl flex items-center gap-3">
+                <div className="w-9 h-9 rounded-xl bg-cyan-500/20 flex items-center justify-center text-cyan-400 font-mono font-bold text-sm">
                   |ψ⟩
                 </div>
-                <div>
-                  <p className="text-xs font-bold text-slate-200">Quantum State</p>
-                  <p className="text-[11px] text-cyan-400 font-mono">α|0⟩ + β|1⟩</p>
+                <div className="text-left">
+                  <p className="text-xs font-bold text-slate-200">Quantum Entanglement</p>
+                  <p className="text-[11px] text-cyan-400 font-mono">|Ψ₁⟩ ⊗ |Ψ₂⟩</p>
                 </div>
               </div>
             </div>

@@ -63,16 +63,16 @@ export const TopNav = () => {
         <a 
           href="#hero" 
           onClick={(e) => { e.preventDefault(); scrollToSection('#hero'); }}
-          className="flex items-center gap-2.5 group cursor-pointer shrink-0"
+          className="flex items-center gap-3 group cursor-pointer shrink-0"
         >
-          <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-cyan-500/10 border border-cyan-400/30 flex items-center justify-center group-hover:border-cyan-400 group-hover:bg-cyan-500/20 transition-all duration-300">
-            <Atom className="h-5 w-5 text-cyan-400 group-hover:rotate-180 transition-transform duration-700" />
+          <div className="h-10 sm:h-11 px-2 py-1 rounded-xl bg-white/95 border border-cyan-400/40 flex items-center justify-center group-hover:border-cyan-400 group-hover:bg-white shadow-md shadow-cyan-500/20 transition-all duration-300">
+            <img src="/quc-logo.jpg" alt="QUC Quantum Club VTU" className="h-full w-auto object-contain rounded-md" />
           </div>
           <div className="flex flex-col text-left">
             <span className="font-bold text-sm sm:text-base tracking-wider text-slate-100 flex items-center gap-1.5 whitespace-nowrap">
               QUANTUM CLUB <span className="text-cyan-400 font-extrabold text-[11px] px-1.5 py-0.5 rounded bg-cyan-950/60 border border-cyan-500/30">VTU</span>
             </span>
-            <span className="text-[10px] text-cyan-400/70 tracking-widest uppercase hidden sm:inline whitespace-nowrap">Visvesvaraya Technological University</span>
+            <span className="text-[10px] text-cyan-400/70 tracking-widest uppercase hidden sm:inline whitespace-nowrap">Visvesvaraya Technological University, Belagavi</span>
           </div>
         </a>
 

@@ -77,6 +77,16 @@ const Index = () => {
 
   const events = [
     {
+      name: "Qiskit Fall Fest 2026",
+      category: "Workshops",
+      image: "/qiskit-fall-fest-2026.jpg",
+      description: "Official IBM Quantum X Visvesvaraya Technological University, Belagavi event! Featuring quantum hackathons, Qiskit coding challenges, and hands-on quantum computing sessions. #QFF26 #QiskitFallFest #IBMQuantum",
+      date: "Fall 2026 (Dates TBA)",
+      location: "VTU Belagavi & Online",
+      badge: "Upcoming",
+      link: "#events"
+    },
+    {
       name: "National Quantum Student Summit (NQSS) 2026",
       category: "Talks",
       image: "https://res.cloudinary.com/dmzliau0j/image/upload/v1772981693/WhatsApp_Image_2026-02-12_at_12.35.38_PM_dpgi1n.jpg",
@@ -510,7 +520,11 @@ const Index = () => {
                     className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500" 
                   />
                   <div className="absolute top-3 left-3">
-                    <Badge className="bg-slate-950/80 backdrop-blur-md border border-cyan-400/40 text-cyan-300 text-[11px]">
+                    <Badge className={`backdrop-blur-md border text-[11px] font-bold ${
+                      ev.badge === "Upcoming"
+                        ? "bg-emerald-950/80 border-emerald-400/50 text-emerald-300 shadow-md shadow-emerald-950/50 animate-pulse"
+                        : "bg-slate-950/80 border-cyan-400/40 text-cyan-300"
+                    }`}>
                       {ev.badge}
                     </Badge>
                   </div>
@@ -535,8 +549,12 @@ const Index = () => {
                     </div>
                   </div>
                   <Button className="w-full bg-slate-900 border border-cyan-500/30 text-cyan-300 hover:bg-cyan-500 hover:text-slate-950 font-bold transition-all rounded-xl" asChild>
-                    <a href={ev.link} target="_blank" rel="noopener noreferrer">
-                      View Event Details <ArrowUpRight className="ml-1 h-4 w-4" />
+                    <a 
+                      href={ev.link} 
+                      target={ev.link.startsWith("http") ? "_blank" : "_self"} 
+                      rel={ev.link.startsWith("http") ? "noopener noreferrer" : undefined}
+                    >
+                      {ev.badge === "Upcoming" ? "Registration Opening Soon" : "View Event Details"} <ArrowUpRight className="ml-1 h-4 w-4" />
                     </a>
                   </Button>
                 </CardContent>

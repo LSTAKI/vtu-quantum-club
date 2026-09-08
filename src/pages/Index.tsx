@@ -168,12 +168,9 @@ const Index = () => {
   ];
 
   const galleryImages = [
-    { src: "https://res.cloudinary.com/dmzliau0j/image/upload/v1764150953/EV-8_cyveb4.jpg", title: "Quantum Summit Keynote", desc: "Expert talks on quantum supremacy and algorithm scaling." },
-    { src: "https://res.cloudinary.com/dmzliau0j/image/upload/v1764145466/ACHV-3_sat7nk.jpg", title: "Student Achievement Award", desc: "Recognizing outstanding achievements in IBM Quantum Challenge." },
-    { src: "https://res.cloudinary.com/dmzliau0j/image/upload/v1764163090/ACHV-2.0_s7fdfo.jpg", title: "Faculty & Student Symposium", desc: "Interactive panel discussion on the future of quantum tech." },
-    { src: "https://res.cloudinary.com/dmzliau0j/image/upload/v1764144581/EV-6_mrg4xr.jpg", title: "Qiskit Coding Session", desc: "Hands-on session building quantum gates and circuits." },
-    { src: "https://res.cloudinary.com/dmzliau0j/image/upload/v1764144581/EV-7_qvrorq.jpg", title: "Hackathon Project Demo", desc: "Student teams presenting quantum optimization solutions." },
-    { src: "https://res.cloudinary.com/dmzliau0j/image/upload/v1764144138/EV-5_g8x8u5.jpg", title: "Industry Collaboration Meet", desc: "Partnering with research labs to boost quantum research." },
+    { src: "/nqss-lamp-lighting.jpg", title: "NQSS 2026 Inaugural Lamp Lighting", desc: "Hon'ble Vice Chancellor Dr. Vidyashankar S. & VTU dignitaries inaugurating National Quantum Students' Summit 2026." },
+    { src: "/nqss-dignitaries.jpg", title: "NQSS 2026 Summit Stage", desc: "VTU Leadership, Chief Coordinators, and Student Club Chairpersons on stage for National Anthem." },
+    { src: "/nqss-audience.jpg", title: "NQSS 2026 Student Delegation", desc: "Student delegates, quantum researchers, and faculty gathered at Dr. A.P.J. Abdul Kalam Auditorium, VTU Belagavi." },
   ];
 
   const socialCommunity = [
@@ -569,13 +566,13 @@ const Index = () => {
         <div className="max-w-7xl mx-auto space-y-12">
           <div className="text-center space-y-4">
             <Badge variant="outline" className="border-cyan-500/30 text-cyan-400 bg-cyan-950/40 px-3 py-1">
-              Visual Highlights
+              NQSS 2026 Event Gallery
             </Badge>
             <h2 className="text-3xl sm:text-5xl font-extrabold text-white">
-              Quantum Club <span className="text-gradient">In Action</span>
+              National Quantum <span className="text-gradient">Students' Summit</span>
             </h2>
             <p className="text-slate-400 max-w-xl mx-auto text-base">
-              Snapshots of our workshops, keynotes, hackathons, and student celebrations.
+              Moments from the inaugural lamp lighting, summit stage address by VTU leadership, and 500+ student delegates at Dr. A.P.J. Abdul Kalam Auditorium.
             </p>
           </div>
 
